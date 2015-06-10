@@ -1,0 +1,21 @@
+<template name="searchBox">
+  <input type="text" id="search-box" placeholder="search packages here" />
+</template>
+
+<template name="searchResult">
+  <div id='search-result'>
+    <div id="search-meta">
+      {{#if isLoading}}
+        searching ...
+      {{/if}}
+    </div>
+
+    {{#each getWords}}
+    <div class="package">
+      <div class="description">
+        {{{text}}}
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</template>
