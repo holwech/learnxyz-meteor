@@ -24,10 +24,3 @@ Template.searchResult.helpers({
 Template.searchResult.rendered = function() {
   WordSearch.search('');
 };
-
-Template.searchBox.events({
-  "keyup #search-box": _.throttle(function(e) {
-    var text = $(e.target).val().trim();
-    WordSearch.search(text);
-  }, 200)
-});

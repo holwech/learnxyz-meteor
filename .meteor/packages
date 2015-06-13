@@ -6,6 +6,7 @@
 
 meteor-platform
 iron:router
-bootstrap
 mrt:moment
 meteorhacks:search-source
+less
+nemo64:bootstrap

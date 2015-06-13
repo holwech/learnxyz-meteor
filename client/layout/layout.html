@@ -1,6 +1,15 @@
 <template name="layout">
-	{{> yield "searchBox" }}
-    {{> yield}}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2">
+				{{> yield "sideMenu"}}
+			</div>
+			<div class="col-md-10">
+				{{> yield "navBar" }}
+				{{> yield}}				
+			</div>
+		</div>
+	</div>
 </template>
 
 

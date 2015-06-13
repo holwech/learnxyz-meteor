@@ -1,19 +1,21 @@
-<template name="searchBox">
-  <input type="text" id="search-box" placeholder="search packages here" />
+<template name="loadingSearch">
+  {{#if isLoading}}
+    searching ...
+  {{/if}}
 </template>
 
 <template name="searchResult">
   <div id='search-result'>
-    <div id="search-meta">
-      {{#if isLoading}}
-        searching ...
-      {{/if}}
+    <div>
+      {{> loadingSearch}}
     </div>
 
     {{#each getWords}}
-    <div class="package">
-      <div class="description">
-        {{{text}}}
+    <div class="panel panel-default">
+      <div class="panel-body">       
+        {{#linkTo route="result"}}
+          {{{text}}}
+        {{/linkTo}}
       </div>
     </div>
     {{/each}}
