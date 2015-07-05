@@ -2,7 +2,7 @@ var options = {
   keepHistory: 1000 * 60 * 5,
   localSearch: true
 };
-var fields = ['text'];
+var fields = ['word'];
 
 WordSearch = new SearchSource('words', fields, options);
 
@@ -18,6 +18,14 @@ Template.searchResult.helpers({
   
   isLoading: function() {
     return WordSearch.getStatus().loading;
+  },
+  getCurrentTab: function() {
+    if(Session.get("currentTab")) {
+      return "category=" + Session.get("currentTab");
+    } else {
+      Session.set("currentTab", "videos");
+      return "category=videos";
+    }
   }
 });
 

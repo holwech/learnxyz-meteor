@@ -9,3 +9,7 @@ Router.route("/", {
 Router.route("/result/:_id", {
 	name: "result"
 });
+
+Router.route("/addword", {
+	name: "addword"
+});

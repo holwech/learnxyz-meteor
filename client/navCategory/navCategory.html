@@ -1,0 +1,17 @@
+<template name="navCategory">
+	<ul class="nav nav-tabs">
+	  <li role="presentation" class="category-tab {{#if currentTab 'videos-tab'}}active{{/if}}" id="videos-tab">
+		{{#linkTo route="result" query="category=videos"}}
+			Videos
+		{{/linkTo}}
+	  </li>
+	  <li role="presentation" class="category-tab {{#if currentTab 'text-tab'}}active{{/if}}" id="text-tab">
+		{{#linkTo route="result" query="category=text"}}
+			Text
+		{{/linkTo}}</li>
+	  <li role="presentation" class="category-tab {{#if currentTab 'images-tab'}}active{{/if}}" id="images-tab">
+		{{#linkTo route="result" query="category=images"}}
+			Images
+		{{/linkTo}}</li>
+	</ul>
+</template>

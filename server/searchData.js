@@ -5,7 +5,7 @@ SearchSource.defineSource('words', function(searchText, options) {
   if(searchText) {
     var regExp = buildRegExp(searchText);
     var selector = {$or: [
-      {text: regExp},
+      {word: regExp},
 //      {description: regExp}
     ]};
 

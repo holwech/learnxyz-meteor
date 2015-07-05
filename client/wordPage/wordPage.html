@@ -1,4 +1,13 @@
 <template name="wordPage">
-	<div>{{_id}}</div>
-	{{data.text}}
+	{{> yield "category"}}
+</template>
+
+<template name="videos">
+	{{#each getSources}}
+		
+	{{/each}}
+</template>
+
+<template name="text">
+2
 </template>

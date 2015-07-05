@@ -13,8 +13,8 @@
     {{#each getWords}}
     <div class="panel panel-default">
       <div class="panel-body">       
-        {{#linkTo route="result"}}
-          {{{text}}}
+        {{#linkTo route="result" query=getCurrentTab}}
+          {{{word}}}
         {{/linkTo}}
       </div>
     </div>
