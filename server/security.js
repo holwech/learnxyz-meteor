@@ -1,0 +1,1 @@
+Security.permit(['insert', 'update']).collections([Words, Languages]).apply();
