@@ -1,15 +1,15 @@
 <template name="navCategory">
 	<ul class="nav nav-tabs">
-	  <li role="presentation" class="category-tab {{#if currentTab 'videos-tab'}}active{{/if}}" id="videos-tab">
+	  <li role="presentation" class="category-tab {{#if currentTab 'videos'}}active{{/if}}" id="videos">
 		{{#linkTo route="result" query="category=videos"}}
 			Videos
 		{{/linkTo}}
 	  </li>
-	  <li role="presentation" class="category-tab {{#if currentTab 'text-tab'}}active{{/if}}" id="text-tab">
+	  <li role="presentation" class="category-tab {{#if currentTab 'text'}}active{{/if}}" id="text">
 		{{#linkTo route="result" query="category=text"}}
 			Text
 		{{/linkTo}}</li>
-	  <li role="presentation" class="category-tab {{#if currentTab 'images-tab'}}active{{/if}}" id="images-tab">
+	  <li role="presentation" class="category-tab {{#if currentTab 'images'}}active{{/if}}" id="images">
 		{{#linkTo route="result" query="category=images"}}
 			Images
 		{{/linkTo}}</li>

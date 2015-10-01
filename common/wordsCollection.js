@@ -1,4 +1,5 @@
 Words =  new Mongo.Collection("words");
+
 Words.attachSchema(new SimpleSchema({
 	word: {
 		type: String,

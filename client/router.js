@@ -10,6 +10,6 @@ Router.route("/result/:_id", {
 	name: "result"
 });
 
-Router.route("/addword", {
-	name: "addword"
+Router.route("/adddata", {
+	name: "adddata"
 });
