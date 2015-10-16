@@ -1,0 +1,15 @@
+<template name="newUrl">
+	{{#autoForm schema=newUrlSchema id="newUrl" type="method" meteormethod="newUrl"}}
+		<fieldset>
+			<legend>Add a new word</legend>
+				{{> afQuickField name="url"}}
+				{{> afQuickField name="description"}}
+				{{> afQuickField name="relatedWords"}}
+				{{> afQuickField name="urlType" options="allowed"}}
+			<div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="reset" class="btn btn-default">Reset</button>
+			</div>
+		</fieldset>
+	{{/autoForm}}
+</template>

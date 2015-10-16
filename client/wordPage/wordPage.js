@@ -1,6 +1,11 @@
 Template.wordPage.helpers({
-	getSources: function() {
-		return Words.find();
+	getData: function() {
+		return Urls.find(
+			{
+				relatedWords: this._id,
+				urlType: "video"
+			}
+		);
 	}
 });
 
