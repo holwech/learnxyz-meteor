@@ -23,8 +23,8 @@ Template.searchResult.helpers({
     if(Session.get("currentTab")) {
       return "category=" + Session.get("currentTab");
     } else {
-      Session.set("currentTab", "videos");
-      return "category=videos";
+      Session.set("currentTab", "video");
+      return "category=video";
     }
   }
 });

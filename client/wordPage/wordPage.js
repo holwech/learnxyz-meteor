@@ -1,4 +1,7 @@
 Template.wordPage.helpers({
+	getText: function() {
+		return  this.test;
+	},
 	getData: function() {
 		return Urls.find(
 			{

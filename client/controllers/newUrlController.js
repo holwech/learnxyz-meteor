@@ -1,4 +1,4 @@
-newUrlController = RouteController.extend({
+NewUrlController = RouteController.extend({
 	action: function() {
 		this.render("newUrl");
 	}
