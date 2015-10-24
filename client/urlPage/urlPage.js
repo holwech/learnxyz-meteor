@@ -1,0 +1,3 @@
+Template.urlPage.helpers({
+	
+});

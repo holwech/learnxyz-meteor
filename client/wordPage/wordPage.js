@@ -1,17 +1,41 @@
 Template.wordPage.helpers({
-	getText: function() {
-		return  this.test;
-	},
+});
+
+Template.wordPage.events({
+
+});
+
+Template.video.helpers({
+	getData: function() {
+		urlData = Urls.find(
+			{
+				relatedWords: this._id,
+				urlType: "video"
+			}
+		).fetch();
+		//for(var i = 0; urlData.length)
+		return urlData;
+	}
+});
+
+Template.text.helpers({
 	getData: function() {
 		return Urls.find(
 			{
 				relatedWords: this._id,
-				urlType: "video"
+				urlType: "text"
 			}
 		);
 	}
 });
 
-Template.wordPage.events({
-
-})
+Template.image.helpers({
+	getData: function() {
+		return Urls.find(
+			{
+				relatedWords: this._id,
+				urlType: "image"
+			}
+		);
+	}
+});

@@ -1,20 +1,41 @@
 <template name="wordPage">
-	{{category}}
-	{{_id}}
 	{{> yield "category"}}
 </template>
 
 <template name="video">
-	1
+	video
 	{{#each getData}}
+		{{_wordId}}
 		<div class="panel panel-default">
-			<div class="panel-body">       
-				{{url}}
-			</div>
+			{{#linkTo route="urlPage"}}
+				<div class="panel-body">
+					<a href="{{url}}">
+						{{url}} - {{description}}
+					</a>
+				</div>
+			{{/linkTo}}
 		</div>
 	{{/each}}
 </template>
 
 <template name="text">
-2
+	text
+	{{#each getData}}
+		<div class="panel panel-default">
+			<div class="panel-body">
+				{{url}} - {{description}}
+			</div>
+		</div>
+	{{/each}}
+</template>
+
+<template name="image">
+	image
+	{{#each getData}}
+		<div class="panel panel-default">
+			<div class="panel-body">
+				{{url}} - {{description}}
+			</div>
+		</div>
+	{{/each}}
 </template>

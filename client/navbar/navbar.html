@@ -19,8 +19,8 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#">Link</a></li>
-	        <li><a href="#">Link</a></li>
+	        <li><a href="{{pathFor route="newWord"}}">New word</a></li>
+	        <li><a href="{{pathFor route="newUrl"}}">New link</a></li>
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
@@ -30,8 +30,8 @@
 	            <li class="divider"></li>
 	            <li><a href="#">Separated link</a></li>
 	          </ul>
-	      	<li><a class="navbar-brand" href="#">Brand</a></li>
 	        </li>
+	      	<li><a class="navbar-brand" href="{{pathFor route="home"}}">LEARN.XYZ</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->

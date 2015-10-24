@@ -6,4 +6,4 @@ Template.searchBox.events({
     	Router.go("/");
     }
   }, 200)
-});
+}); 

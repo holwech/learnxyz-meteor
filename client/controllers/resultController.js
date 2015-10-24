@@ -1,4 +1,4 @@
-WordPageController = RouteController.extend({
+ResultController = RouteController.extend({
 	action: function() {
 		this.render("navBar", {to: "navBar"});
 		this.render("navCategory", {to: "navCategory"});
@@ -10,5 +10,3 @@ WordPageController = RouteController.extend({
 		return {_id: this.params._id, category: this.params.query.category};
 	}
 });
-
-//return {_id: Meteor.Collection.ObjectID(this.params._id), category: this.params.query.category, test: "testt"};

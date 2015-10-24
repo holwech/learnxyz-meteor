@@ -7,7 +7,11 @@ Router.route("/", {
 });
 
 Router.route("/result/:_id", {
-	name: "wordPage"
+	name: "result"
+});
+
+Router.route("/result/test/:_id", {
+	name: "urlPage"
 });
 
 Router.route("/newWord", {
