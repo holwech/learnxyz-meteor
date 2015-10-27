@@ -10,7 +10,7 @@ Router.route("/result/:_id", {
 	name: "result"
 });
 
-Router.route("/result/test/:_id", {
+Router.route("/result/:_wordId/:_id", {
 	name: "urlPage"
 });
 

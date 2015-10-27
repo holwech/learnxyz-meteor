@@ -1,3 +1,8 @@
 <template name="urlPage">
-	Blablabalbalblblblbl
+	<div class="page-header">
+		{{#with getData}}
+			<a href="{{url}}"><h3>{{url}}</h3></a>
+			
+		{{/with}}
+	</div>
 </template>

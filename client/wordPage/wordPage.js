@@ -13,7 +13,9 @@ Template.video.helpers({
 				urlType: "video"
 			}
 		).fetch();
-		//for(var i = 0; urlData.length)
+		for(var i = 0; i < urlData.length; i++) {
+			urlData[i]._wordId = this._id;
+		}
 		return urlData;
 	}
 });
