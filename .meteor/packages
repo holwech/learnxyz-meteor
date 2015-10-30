@@ -6,7 +6,6 @@
 
 iron:router
 mrt:moment
-meteorhacks:search-source
 less
 nemo64:bootstrap
 aldeed:autoform
@@ -27,3 +26,5 @@ ejson
 spacebars
 check
 aldeed:simple-schema
+tap:i18n
+easy:search

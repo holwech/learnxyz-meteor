@@ -1,7 +1,8 @@
 <template name="sideMenu">
 		<ul class="nav nav-pills nav-stacked">
-			<li><a href="#">Menu 1</a></li>
-			<input type="text" id="language-box" class="form-control" placeholder="Select a langauge" />
+			<li id="no"><a href="#">{{_ "lang_norwegian"}}</a></li>
+			<li id="en"><a href="#">{{_ "lang_english"}}</a></li>
+			<input type="text" id="language-box" class="form-control" placeholder="{{_ "lang_searchbar"}}" />
 			{{#each getLanguages}}
 				<li>
 					{{hl}}

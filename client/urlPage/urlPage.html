@@ -1,8 +1,14 @@
 <template name="urlPage">
-	<div class="page-header">
-		{{#with getData}}
-			<a href="{{url}}"><h3>{{url}}</h3></a>
-			
-		{{/with}}
-	</div>
+	{{#with getData}}
+		<div class="row">
+			<div class="page-header">
+				<a href="{{url}}"><h3>{{url}}</h3></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				{{description}}
+			</div>
+		</div>
+	{{/with}}
 </template>

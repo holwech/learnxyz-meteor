@@ -2,16 +2,16 @@
 	<ul class="nav nav-tabs">
 	  <li role="presentation" class="category-tab {{#if currentTab 'video'}}active{{/if}}" id="video">
 		{{#linkTo route="result" query="category=video"}}
-			Video
+			{{_ "tab_video"}}
 		{{/linkTo}}
 	  </li>
 	  <li role="presentation" class="category-tab {{#if currentTab 'text'}}active{{/if}}" id="text">
 		{{#linkTo route="result" query="category=text"}}
-			Text
+			{{_ "tab_text"}}
 		{{/linkTo}}</li>
 	  <li role="presentation" class="category-tab {{#if currentTab 'image'}}active{{/if}}" id="image">
 		{{#linkTo route="result" query="category=image"}}
-			Image
+			{{_ "tab_image"}}
 		{{/linkTo}}</li>
 	</ul>
 </template>

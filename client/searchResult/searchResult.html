@@ -1,23 +1,18 @@
-<template name="loadingSearch">
-  {{#if isLoading}}
-    searching ...
-  {{/if}}
-</template>
-
 <template name="searchResult">
-  <div id='search-result'>
-    <div>
-      {{> loadingSearch}}
-    </div>
-
-    {{#each getWords}}
+  {{#EasySearch.Each index=wordsIndex}}
     <div class="panel panel-default">
-      <div class="panel-body">       
+      <div class="panel-body">
+        {{word}}
         {{#linkTo route="result" query=getCurrentTab}}
-          {{{word}}}
+          {{word}}
         {{/linkTo}}
       </div>
     </div>
-    {{/each}}
-  </div>
+  {{/EasySearch.Each}}
+
+  {{> EasySearch.LoadMore index=wordsIndex}}
+
+  {{#EasySearch.IfNoResults index=wordsIndex}}
+    <div class="no-results">No results found!</div>
+  {{/EasySearch.IfNoResults}}
 </template>
