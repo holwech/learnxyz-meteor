@@ -7,6 +7,6 @@ ResultController = RouteController.extend({
 		this.render(this.params.query.category, {to: "category"})
 	},
 	data: function() {
-		return {_id: this.params._id, category: this.params.query.category};
+		return {__originalId: this.params.__originalId, _id: this.params.__originalId, category: this.params.query.category};
 	}
 });

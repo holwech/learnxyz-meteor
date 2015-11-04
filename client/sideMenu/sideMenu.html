@@ -1,12 +1,16 @@
 <template name="sideMenu">
-		<ul class="nav nav-pills nav-stacked">
-			<li id="no"><a href="#">{{_ "lang_norwegian"}}</a></li>
-			<li id="en"><a href="#">{{_ "lang_english"}}</a></li>
-			<input type="text" id="language-box" class="form-control" placeholder="{{_ "lang_searchbar"}}" />
-			{{#each getLanguages}}
-				<li>
-					{{hl}}
-				</li>
-			{{/each}}
-		</ul>
+  <ul class="nav nav-pills nav-stacked">
+		<li id="no"><a href="#">{{_ "lang_norwegian"}}</a></li>
+		<li id="en"><a href="#">{{_ "lang_english"}}</a></li>
+  	{{> EasySearch.Input index=languagesIndex}}
+    {{#EasySearch.Each index=languagesIndex}}
+      <li id="{{code}}"><a href="#">{{nativeName}}</a></li>
+    {{/EasySearch.Each}}
+  </ul>
+
+  {{> EasySearch.LoadMore index=languagesIndex}}
+
+  {{#EasySearch.IfNoResults index=languagesIndex}}
+    <div class="no-results">No results found!</div>
+  {{/EasySearch.IfNoResults}}
 </template>

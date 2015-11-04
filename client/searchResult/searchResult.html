@@ -1,13 +1,15 @@
 <template name="searchResult">
   {{#EasySearch.Each index=wordsIndex}}
-    <div class="panel panel-default">
-      <div class="panel-body">
-        {{word}}
-        {{#linkTo route="result" query=getCurrentTab}}
-          {{word}}
-        {{/linkTo}}
+    <a href="{{pathFor route='result' query=getCurrentTab}}">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{word}}</h3>
+          </div>
+          <div class="panel-body">
+            {{description}}
+          </div>
       </div>
-    </div>
+    </a>
   {{/EasySearch.Each}}
 
   {{> EasySearch.LoadMore index=wordsIndex}}

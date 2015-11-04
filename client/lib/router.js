@@ -6,7 +6,7 @@ Router.route("/", {
 	name: "home"
 });
 
-Router.route("/result/:_id", {
+Router.route("/result/:__originalId", {
 	name: "result"
 });
 

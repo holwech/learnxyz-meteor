@@ -1,6 +1,10 @@
 Template.navBar.helpers({
-	wordsIndex: () => WordsIndex
+  wordsIndex: () => WordsIndex,
+  currentLanguage: function() {
+  	return getLanguage();
+  }
 });
+
 
 
 

@@ -7,7 +7,6 @@
 iron:router
 mrt:moment
 less
-nemo64:bootstrap
 aldeed:autoform
 ongoworks:security
 aldeed:collection2
@@ -28,3 +27,4 @@ check
 aldeed:simple-schema
 tap:i18n
 easy:search
+twbs:bootstrap

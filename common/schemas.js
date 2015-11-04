@@ -10,7 +10,11 @@ Schemas.newWord = new SimpleSchema({
     description: {
         type: String,
         label: "Description"
-    }
+    },
+    language: {
+    	type: String,
+    	label: "Language"
+	}
 });
 
 Schemas.newUrl = new SimpleSchema({
@@ -30,5 +34,9 @@ Schemas.newUrl = new SimpleSchema({
 		type: String,
 		allowedValues: ["video", "text", "image"],
 		label: "Url type"
+	},
+	language: {
+    	type: String,
+    	label: "Language"
 	}
 });

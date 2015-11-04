@@ -9,3 +9,5 @@ Template.searchResult.helpers({
     }
   }
 });
+
+
