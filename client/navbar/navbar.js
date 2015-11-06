@@ -1,8 +1,26 @@
 Template.navBar.helpers({
-  wordsIndex: () => WordsIndex,
-  currentLanguage: function() {
-  	return getLanguage();
-  }
+	wordsIndex: function() {
+		return WordsIndex;
+	},
+	currentLanguage: function() {
+		return getLanguage();
+	},
+	attrInput: function() {
+		return {
+			class: "form-control col-lg-8",
+			id: "searchbar",
+			placeholder: function() {
+				return TAPi18n.__('searchbar');
+			}
+		};
+	}
+});
+
+Template.navBar.events({
+	"keydown #searchbar": function(event) {
+		console.log("test")
+		Router.go("home");
+	}
 });
 
 

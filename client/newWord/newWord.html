@@ -1,7 +1,7 @@
 <template name="newWord">
 	{{#autoForm schema=newWordSchema id="newWord" type="method" meteormethod="newWord"}}
 		<fieldset>
-			<legend>Add a new word</legend>
+			<legend>{{_ "label_newWord"}}</legend>
 				{{> afQuickField name="word"}}
 				{{> afQuickField name="description"}}
 				{{> afQuickField name="language"}}

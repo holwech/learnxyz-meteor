@@ -4,39 +4,55 @@ Schemas = {};
 Schemas.newWord = new SimpleSchema({
     word: {
         type: String,
-        label: "Word",
+        label: function() {
+            return TAPi18n.__('form_word');
+        },
         max: 50
     },
     description: {
         type: String,
-        label: "Description"
+        label: function() {
+            return TAPi18n.__('form_description');
+        }
     },
     language: {
     	type: String,
-    	label: "Language"
+    	label: function() {
+            return TAPi18n.__('form_language');
+        }
 	}
 });
 
 Schemas.newUrl = new SimpleSchema({
 	url: {
 		type: String,
-		label: "Link"
+		label: function() {
+            return TAPi18n.__('form_url');
+        }
 	},
 	description: {
 		type: String,
-		label: "Description",
+		label: function() {
+            return TAPi18n.__('form_description');
+        }
 	},
 	relatedWords: {
 		type: String,
-		label: "Related word"
+		label: function() {
+            return TAPi18n.__('form_relatedWords');
+        }
 	},
 	urlType: {
 		type: String,
 		allowedValues: ["video", "text", "image"],
-		label: "Url type"
+		label: function() {
+            return TAPi18n.__('form_urlType');
+        }
 	},
 	language: {
     	type: String,
-    	label: "Language"
+    	label: function() {
+            return TAPi18n.__('form_language');
+        }
 	}
 });

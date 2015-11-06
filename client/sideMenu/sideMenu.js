@@ -1,15 +1,23 @@
 Template.sideMenu.helpers({
-	languagesIndex: () => LanguagesIndex
+	languagesIndex: function() {
+		return LanguagesIndex;
+	},
+	attrInput: function() {
+		return {
+			class: "form-control col-lg-8",
+			placeholder: function() {
+				return TAPi18n.__('lang_searchbar');
+			}
+		};
+	}
 });
 
 
 Template.sideMenu.events({
-	"click #no": function(event) {
-		TAPi18n.setLanguage("no");
-		setLanguage("no");
-	},
-	"click #en": function(event) {
-		TAPi18n.setLanguage("en");
-		setLanguage("en");
+	"click #languageList": function(event) {
+		if (event.target.tagName !== "INPUT") {
+			console.log(event.target.id);
+			setLanguage(event.target.id);
+		}
 	}
 });

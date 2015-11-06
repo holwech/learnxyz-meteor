@@ -1,7 +1,7 @@
 <template name="newUrl">
 	{{#autoForm schema=newUrlSchema id="newUrl" type="method" meteormethod="newUrl"}}
 		<fieldset>
-			<legend>Add a new word</legend>
+			<legend>{{_ "label_newUrl"}}</legend>
 				{{> afQuickField name="url"}}
 				{{> afQuickField name="description"}}
 				{{> afQuickField name="relatedWords"}}

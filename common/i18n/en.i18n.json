@@ -1,11 +1,23 @@
 {
 	"new_word": "New word",
 	"new_url": "New url",
+
 	"searchbar": "Search for a word",
 	"lang_searchbar": "Select a language",
+
 	"tab_video": "Video",
 	"tab_text": "Text",
 	"tab_image": "Image",
+
 	"lang_norwegian": "Norwegian",
-	"lang_english": "English"
+	"lang_english": "English",
+
+	"label_newWord": "Add a new word",
+	"label_newUrl": "Add a new url",
+	"form_language": "language",
+	"form_urlType": "Url type",
+	"form_relatedWords": "Related words",
+	"form_description": "Description",
+	"form_url": "Url",
+	"form_word": "Word"
 }

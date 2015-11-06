@@ -4,13 +4,3 @@ Template.newWord.helpers({
 	}
 });
 
-var passLanguage = {
-	before: {
-		method: function(doc) {
-			console.log(doc.language);
-			return doc;
-		}
-	}
-};
-AutoForm.addHooks(["newWord"], passLanguage);
-

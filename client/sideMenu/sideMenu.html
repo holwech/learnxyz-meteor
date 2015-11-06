@@ -1,10 +1,12 @@
 <template name="sideMenu">
-  <ul class="nav nav-pills nav-stacked">
-		<li id="no"><a href="#">{{_ "lang_norwegian"}}</a></li>
-		<li id="en"><a href="#">{{_ "lang_english"}}</a></li>
-  	{{> EasySearch.Input index=languagesIndex}}
+  <ul class="nav nav-pills nav-stacked" id="languageList">
+		<li><a href="#" id="no">{{_ "lang_norwegian"}}</a></li>
+		<li><a href="#" id="en">{{_ "lang_english"}}</a></li>
+		<li>
+	  	{{> EasySearch.Input index=languagesIndex attributes=attrInput}}
+    </li>
     {{#EasySearch.Each index=languagesIndex}}
-      <li id="{{code}}"><a href="#">{{nativeName}}</a></li>
+      <li><a href="#" id="{{code}}">{{nativeName}}</a></li>
     {{/EasySearch.Each}}
   </ul>
 

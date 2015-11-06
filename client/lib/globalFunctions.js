@@ -9,7 +9,9 @@ getLanguage = function() {
 setLanguage = function(lang) {
 	if (lang !== undefined) {
 		Session.set("currentlanguage", lang);
+		TAPi18n.setLanguage(lang);
 	} else {
 		Session.set("currentlanguage", "en");
+		TAPi18n.setLanguage("en");
 	}
 };
