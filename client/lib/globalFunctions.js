@@ -6,6 +6,7 @@ getLanguage = function() {
 		return "en";
 	}
 };
+
 setLanguage = function(lang) {
 	if (lang !== undefined) {
 		Session.set("currentlanguage", lang);

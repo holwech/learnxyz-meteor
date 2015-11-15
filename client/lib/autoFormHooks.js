@@ -8,7 +8,9 @@ var newData = {
 		console.log(result);
 	},
 	onError: function(formType, error) {
-		console.log(error);
+		console.log(error.reason);
+		$(".alert").removeClass("hide");
+		$("#warning-text").html(error.reason);
 	}
 };
 

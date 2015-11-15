@@ -14,7 +14,7 @@
 
 	"label_newWord": "Add a new word",
 	"label_newUrl": "Add a new url",
-	"form_language": "language",
+	"form_language": "Language",
 	"form_urlType": "Url type",
 	"form_relatedWords": "Related words",
 	"form_description": "Description",

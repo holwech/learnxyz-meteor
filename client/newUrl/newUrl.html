@@ -1,4 +1,5 @@
 <template name="newUrl">
+	{{> nfWarning}}
 	{{#autoForm schema=newUrlSchema id="newUrl" type="method" meteormethod="newUrl"}}
 		<fieldset>
 			<legend>{{_ "label_newUrl"}}</legend>
@@ -6,7 +7,7 @@
 				{{> afQuickField name="description"}}
 				{{> afQuickField name="relatedWords"}}
 				{{> afQuickField name="urlType" options="allowed"}}
-				{{> afQuickField name="language"}}
+				{{> afQuickField name="language" id="field_language" value=fieldLanguage readonly=setReadOnly}}
 			<div>
 				<button type="submit" class="btn btn-primary">Submit</button>
 				<button type="reset" class="btn btn-default">Reset</button>
@@ -14,3 +15,5 @@
 		</fieldset>
 	{{/autoForm}}
 </template>
+
+

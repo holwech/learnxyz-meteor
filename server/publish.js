@@ -4,3 +4,6 @@ Meteor.publish("words", function () {
 Meteor.publish("urls", function() {
 	return Urls.find({});
 });
+Meteor.publish("languages", function () {
+	return Languages.find({});
+});
