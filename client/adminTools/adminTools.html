@@ -1,0 +1,19 @@
+<template name="adminTools">
+	<div class="row">
+		<div class="col-md-6">
+				{{> yield "leftField1"}}
+		</div>
+		<div class="col-md-6">
+				{{> yield "rightField1"}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+				<button id="dropUrls">Drop urls</button>
+				<button id="dropWords">Drop words</button>
+		</div>
+		<div class="col-md-6">
+				<button id="addLanguages">Add languages</button>
+		</div>
+	</div>
+</template>

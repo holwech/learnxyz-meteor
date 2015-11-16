@@ -14,10 +14,6 @@ Router.route("/result/:_wordId/:_id", {
 	name: "urlPage"
 });
 
-Router.route("/newWord", {
-	name: "newWord"
-});
-
-Router.route("/newUrl", {
-	name: "newUrl"
+Router.route("/tools", {
+	name: "adminTools"
 });

@@ -109,5 +109,21 @@ Meteor.methods({
 
 	deleteWord: function(wordId) {
 		Words.remove(wordId);
+	},
+
+	dropUrls: function() {
+		Urls.remove({});
+	},
+	dropWords: function() {
+		Words.remove({});
+	},
+	addLanguages: function() {
+		for (var key in isoLangs) {
+			Languages.insert({
+				code: key,
+				name: isoLangs[key].name,
+				nativeName: isoLangs[key].nativeName
+			});
+		}
 	}
 });
