@@ -19,7 +19,7 @@ Meteor.methods({
 		Words.insert({
 				createdAt: new Date(),
 				language: code,
-				word: doc.word,
+				word: doc.word.toLowerCase(),
 				description: doc.description
 			},
 			function(error, inserted) {
@@ -118,6 +118,7 @@ Meteor.methods({
 		Words.remove({});
 	},
 	addLanguages: function() {
+		Lanuages.remove({});
 		for (var key in isoLangs) {
 			Languages.insert({
 				code: key,
