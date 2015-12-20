@@ -1,1 +1,1 @@
-
+Meteor.subscribe("languages");

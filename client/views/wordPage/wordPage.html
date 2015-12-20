@@ -1,37 +1,17 @@
 <template name="wordPage">
-	{{> yield "category"}}
-</template>
-
-<template name="video">
-	{{#each getData}}
-		<div class="panel panel-default">
-			{{#linkTo route="urlPage"}}
-				<div class="panel-body">
-					<a href="{{url}}">
-						{{url}} - {{description}}
-					</a>
-				</div>
-			{{/linkTo}}
-		</div>
-	{{/each}}
-</template>
-
-<template name="text">
-	{{#each getData}}
-		<div class="panel panel-default">
-			<div class="panel-body">
-				{{url}} - {{description}}
+	{{#if Template.subscriptionsReady}}
+		{{#each getData}}
+			<div class="panel panel-default">
+				{{#linkTo route="urlPage"}}
+					<div class="panel-body">
+						<a href="{{url}}">
+							{{url}} - {{description}}
+						</a>
+					</div>
+				{{/linkTo}}
 			</div>
-		</div>
-	{{/each}}
-</template>
-
-<template name="image">
-	{{#each getData}}
-		<div class="panel panel-default">
-			<div class="panel-body">
-				{{url}} - {{description}}
-			</div>
-		</div>
-	{{/each}}
+		{{/each}}
+	{{else}}
+		{{> localLoading}}
+	{{/if}}
 </template>

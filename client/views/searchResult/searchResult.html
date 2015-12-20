@@ -1,20 +1,28 @@
 <template name="searchResult">
-  {{#EasySearch.Each index=wordsIndex}}
-    <a href="{{pathFor route='result' query=getCurrentTab}}">
-      <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">{{word}}</h3>
-          </div>
-          <div class="panel-body">
-            {{description}}
-          </div>
-      </div>
-    </a>
-  {{/EasySearch.Each}}
+	{{#if Template.subscriptionsReady}}
+		{{#EasySearch.Each index=wordsIndex}}
+			<a href="{{pathFor route='result' query=getCurrentTab}}">
+				<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">{{word}}</h3>
+						</div>
+						<div class="panel-body">
+							{{description}}
+						</div>
+				</div>
+			</a>
+		{{/EasySearch.Each}}
 
-  {{> EasySearch.LoadMore index=wordsIndex}}
+		{{#EasySearch.IfSearching index=wordsIndex}}
+			{{> localLoading}}
+		{{/EasySearch.IfSearching}}
 
-  {{#EasySearch.IfNoResults index=wordsIndex}}
-    <div class="no-results">No results found!</div>
-  {{/EasySearch.IfNoResults}}
+		{{> EasySearch.LoadMore index=wordsIndex}}
+
+		{{#EasySearch.IfNoResults index=wordsIndex}}
+			<div class="no-results">No results found!</div>
+		{{/EasySearch.IfNoResults}}
+	{{else}}
+		{{> localLoading}}
+	{{/if}}
 </template>

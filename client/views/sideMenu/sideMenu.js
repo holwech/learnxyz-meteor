@@ -1,3 +1,7 @@
+Template.sideMenu.onCreated(function () {
+	this.subscribe("languages");
+});
+
 Template.sideMenu.helpers({
 	languagesIndex: function() {
 		return LanguagesIndex;

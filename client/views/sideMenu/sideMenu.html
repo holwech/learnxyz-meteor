@@ -1,18 +1,24 @@
 <template name="sideMenu">
-	<ul class="nav nav-pills nav-stacked" id="languageList">
-		<li><a href="#" id="no">{{_ "lang_norwegian"}}</a></li>
-		<li><a href="#" id="en">{{_ "lang_english"}}</a></li>
-		<li>
-			{{> EasySearch.Input index=languagesIndex attributes=attrInput}}
-		</li>
-		{{#EasySearch.Each index=languagesIndex}}
-			<li><a href="#" id="{{code}}">{{nativeName}}</a></li>
-		{{/EasySearch.Each}}
-	</ul>
+	{{#if Template.subscriptionsReady}}
+		<ul class="nav nav-pills nav-stacked" id="languageList">
+			<li><a href="#" id="no">{{_ "lang_norwegian"}}</a></li>
+			<li><a href="#" id="en">{{_ "lang_english"}}</a></li>
+			<li>
+				{{> EasySearch.Input index=languagesIndex attributes=attrInput}}
+			</li>
+			{{#EasySearch.Each index=languagesIndex}}
+				<li><a href="#" id="{{code}}">{{nativeName}}</a></li>
+			{{/EasySearch.Each}}
+		</ul>
 
-	{{> EasySearch.LoadMore index=languagesIndex}}
-
-	{{#EasySearch.IfNoResults index=languagesIndex}}
-	<div class="no-results">No results found!</div>
-	{{/EasySearch.IfNoResults}}
+		{{#EasySearch.IfSearching index=languagesIndex}}
+			{{> localLoading}}
+		{{/EasySearch.IfSearching}}
+		{{#EasySearch.IfNoResults index=languagesIndex}}
+			<div class="no-results">No results found!</div>
+		{{/EasySearch.IfNoResults}}
+		{{> EasySearch.LoadMore index=languagesIndex}}
+	{{else}}
+		{{> localLoading}}
+	{{/if}}
 </template>
