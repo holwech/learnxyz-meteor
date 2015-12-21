@@ -1,16 +1,18 @@
 <template name="urlPage">
-	{{#with getData}}
-		<div class="row">
-			<div class="page-header">
-				<a href="{{url}}"><h3>{{url}}</h3></a>
+	{{#if Template.subscriptionsReady}}
+		{{#with getData}}
+			<div class="row">
+				<div class="page-header">
+					<a href="{{url}}"><h3>{{url}}</h3></a>
+				</div>
 			</div>
-		</div>
-	{{/with}}
-	{{#with getLangData}}
-		<div class="row">
-			<div class="col-md-12">
-				{{data}}
+			<div class="row">
+				<div class="col-md-12">
+					{{description}}
+				</div>
 			</div>
-		</div>
-	{{/with}}
+		{{/with}}
+	{{else}}
+		{{> localLoading}}
+	{{/if}}
 </template>

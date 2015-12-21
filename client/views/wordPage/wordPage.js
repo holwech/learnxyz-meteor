@@ -1,5 +1,5 @@
-Template.wordPage .onCreated(function () {
-	this.subscribe("getWordResults", this._id);
+Template.wordPage.onCreated(function () {
+	this.subscribe("getWordUrls", Router.current().params.__originalId);
 });
 
 Template.wordPage.helpers({

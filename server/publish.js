@@ -1,17 +1,21 @@
 Meteor.publish("words", function () {
-	Meteor._sleepForMs(1000);
 	return Words.find({});
 });
 
-Meteor.publish("getWordResults", function(wordId) {
-	Meteor._sleepForMs(2000);
-	return urlData = Urls.find();
+Meteor.publish("getWordUrls", function(wordId) {
+	Meteor._sleepForMs(500);
+	console.log(wordId);
+	return urlData = Urls.find({relatedWords: wordId});
+});
+
+Meteor.publish("getUrlData", function(urlId) {
+	Meteor._sleepForMs(500);
+	return Urls.find({_id: urlId});
 });
 
 Meteor.publish("urls", function() {
 	return Urls.find({});
 });
 Meteor.publish("languages", function () {
-	Meteor._sleepForMs(2000);
 	return Languages.find({});
 });
