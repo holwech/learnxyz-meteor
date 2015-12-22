@@ -47,7 +47,7 @@ Schemas.newUrl = new SimpleSchema({
 	},
 	urlType: {
 		type: String,
-		allowedValues: ["video", "text", "image"],
+		allowedValues: ['video', 'text', 'image'],
 		label: function() {
 			return TAPi18n.__('form_urlType');
 		}
@@ -63,9 +63,21 @@ Schemas.newUrl = new SimpleSchema({
 Schemas.newUrlComment = new SimpleSchema({
 	commentText: {
 		type: String,
-		label: "Write a comment (x)",
+		label: 'Write a comment (x)',
 		autoform: {
 			rows: 3
+		}
+	},
+	language: {
+		type: String,
+		autoform: {
+			type: 'hidden'
+		}
+	},
+	urlId: {
+		type: String,
+		autoform: {
+			type: 'hidden'
 		}
 	}
 });

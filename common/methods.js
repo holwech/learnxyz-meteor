@@ -10,10 +10,10 @@ Meteor.methods({
 			}
 		);
 		if (data !== undefined) {
-			throw new Meteor.Error(500, "Word already exists");
+			throw new Meteor.Error(500, 'Word already exists');
 		}
 		if (langData === undefined) {
-			throw new Meteor.Error(500, "Undefined language");
+			throw new Meteor.Error(500, 'Undefined language');
 		}
 
 		Words.insert({
@@ -28,22 +28,22 @@ Meteor.methods({
 				}
 			}
 		);
-		return doc.word + " has been added!";
+		return doc.word + ' has been added!';
 	},
 
 	newUrl: function(doc) {
 		check(doc, Schemas.newUrl);
-		var wordData = Words.findOne({word: doc.relatedWords.toLowerCase()});
-		var langData = Languages.findOne({name: doc.language}, {code: 1});
-		var code = langData.code;
-		var urlData = Urls.findOne({url: doc.url});
+		let wordData = Words.findOne({word: doc.relatedWords.toLowerCase()});
+		let langData = Languages.findOne({name: doc.language}, {code: 1});
+		let code = langData.code;
+		let urlData = Urls.findOne({url: doc.url});
 
 		if (wordData === undefined) {
-			throw new Meteor.Error(500, "Related word does not exist");
+			throw new Meteor.Error(500, 'Related word does not exist');
 		}
 
 		if (langData === undefined) {
-			throw new Meteor.Error(500, "Undefined language");
+			throw new Meteor.Error(500, 'Undefined language');
 		}
 		if (urlData === undefined) {
 			Urls.insert(
@@ -104,11 +104,22 @@ Meteor.methods({
 				}
 			}
 		);
-		return doc.url + " has been added!";
+		return doc.url + ' has been added!';
 	},
 
-	newUrlComment: function() {
-
+	newUrlComment: function(doc) {
+		if(!this.userId) {
+			throw new Meteor.Error(500, 'You are not logged in');
+		}
+		let langData = Languages.findOne({name: doc.language}, {code: 1});
+		let langCode = langData.code;
+		let urlId = Urls.findOne({_id: doc.urlId});
+		if (urlId === undefined) {
+			throw new Meteor.Error(500, 'Undefined url id');
+		}
+		if (langData === undefined) {
+			throw new Meteor.Error(500, 'Undefined language');
+		}
 	},
 
 	deleteWord: function(wordId) {
@@ -123,7 +134,7 @@ Meteor.methods({
 	},
 	addLanguages: function() {
 		Lanuages.remove({});
-		for (var key in isoLangs) {
+		for (let key in isoLangs) {
 			Languages.insert({
 				code: key,
 				name: isoLangs[key].name,

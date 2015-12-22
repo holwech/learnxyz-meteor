@@ -5,6 +5,6 @@ UrlPageController = RouteController.extend({
 		this.render("urlPage");
 	},
 	data: function() {
-		return {_wordId: this.params._wordId, _id: this.params._id};
+		return {_wordId: this.params._wordId, _id: this.params._id, _urlId: this.params._id};
 	}
 });

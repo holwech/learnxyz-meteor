@@ -1,4 +1,4 @@
-var newData = {
+let notificationHandling = {
 	before: {
 		method: function(doc) {
 			return doc;
@@ -13,5 +13,5 @@ var newData = {
 		$("#warning-text").html(error.reason);
 	}
 };
+AutoForm.addHooks(["newWord", "newUrl", "newUrlComment"], notificationHandling);
 
-AutoForm.addHooks(["newWord", "newUrl"], newData);

@@ -1,11 +1,14 @@
-<template name="textAreaMedium">
-	<div class="col-sm-4">
-		{{#autoForm schema=newUrlCommentSchema id="newUrlComment" type="method" meteormethod="newUrlComment"}}
+<template name='textAreaMedium'>
+	{{> nfWarning}}
+	<div class='col-sm-4'>
+		{{#autoForm schema=newUrlCommentSchema id='newUrlComment' type='method' meteormethod='newUrlComment'}}
 			<fieldset>
-				{{> afQuickField name="commentText"}}
+				{{> afQuickField name='commentText'}}
+				{{> afQuickField name='language' value=fieldLanguage}}
+				{{> afQuickField name='urlId' value=fieldUrlId}}
 				<div>
-					<button type="submit" class="btn btn-primary">Submit</button>
-					<button type="reset" class="btn btn-default">Reset</button>
+					<button type='submit' class='btn btn-primary'>Submit</button>
+					<button type='reset' class='btn btn-default'>Reset</button>
 				</div>
 			</fieldset>
 		{{/autoForm}}
