@@ -1,11 +1,11 @@
 Template.textAreaMedium.helpers({
-	newUrlCommentSchema: function() {
-		return Schemas.newUrlComment;
+	newCommentSchema: function() {
+		return Schemas.newComment;
 	},
 	fieldLanguage: function() {
 		return Languages.findOne({code: getLanguage()}).name;
 	},
-	fieldUrlId: function() {
+	fieldTypeId: function() {
 		return Router.current().params._id;
 	}
 });

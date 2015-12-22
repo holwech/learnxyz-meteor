@@ -60,7 +60,7 @@ Schemas.newUrl = new SimpleSchema({
 	}
 });
 
-Schemas.newUrlComment = new SimpleSchema({
+Schemas.newComment = new SimpleSchema({
 	commentText: {
 		type: String,
 		label: 'Write a comment (x)',
@@ -74,7 +74,7 @@ Schemas.newUrlComment = new SimpleSchema({
 			type: 'hidden'
 		}
 	},
-	urlId: {
+	typeId: {
 		type: String,
 		autoform: {
 			type: 'hidden'

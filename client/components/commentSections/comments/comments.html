@@ -1,0 +1,15 @@
+<template name='comments'>
+	{{#if Template.subscriptionsReady}}
+		{{#each comments}}
+			<div class='row'>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						{{comment}}
+					</div>
+				</div>
+			</div>
+		{{/each}}
+	{{else}}
+		{{>localLoading}}
+	{{/if}}
+</template>

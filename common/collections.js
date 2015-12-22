@@ -1,9 +1,9 @@
-Urls =  new Mongo.Collection("urls");
+Urls =  new Mongo.Collection('urls');
 
-Words =  new Mongo.Collection("words");
+Words =  new Mongo.Collection('words');
 WordsIndex = new EasySearch.Index({
 	collection: Words,
-	fields: ["word"],
+	fields: ['word'],
 	engine: new EasySearch.MongoDB({
 		selector: function (searchObject, options, aggregation) {
 			var selector = this.defaultConfiguration().selector(searchObject, options, aggregation);
@@ -13,9 +13,11 @@ WordsIndex = new EasySearch.Index({
 	})
 });
 
-Languages = new Mongo.Collection("languages");
+Languages = new Mongo.Collection('languages');
 LanguagesIndex = new EasySearch.Index({
 	collection: Languages,
-	fields: ["name","nativeName"],
+	fields: ['name','nativeName'],
 	engine: new EasySearch.MongoDB()
 });
+
+Comments = new Mongo.Collection('comments');

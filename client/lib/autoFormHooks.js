@@ -13,5 +13,5 @@ let notificationHandling = {
 		$("#warning-text").html(error.reason);
 	}
 };
-AutoForm.addHooks(["newWord", "newUrl", "newUrlComment"], notificationHandling);
+AutoForm.addHooks(["newWord", "newUrl", "newComment"], notificationHandling);
 

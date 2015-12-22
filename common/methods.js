@@ -100,26 +100,34 @@ Meteor.methods({
 			{$addToSet: {relatedUrls: Urls.findOne({url: doc.url})._id}},
 			function(error, inserted) {
 				if (error) {
-					throw new Meteor.Error( 500, 'There was an error processing your request' );
+					throw new Meteor.Error(500, 'There was an error processing your request' );
 				}
 			}
 		);
 		return doc.url + ' has been added!';
 	},
 
-	newUrlComment: function(doc) {
+	newComment: function(doc) {
 		if(!this.userId) {
 			throw new Meteor.Error(500, 'You are not logged in');
 		}
 		let langData = Languages.findOne({name: doc.language}, {code: 1});
 		let langCode = langData.code;
-		let urlId = Urls.findOne({_id: doc.urlId});
-		if (urlId === undefined) {
+		let typeId = Urls.findOne({_id: doc.typeId})._id;
+		if (typeId === undefined) {
 			throw new Meteor.Error(500, 'Undefined url id');
 		}
 		if (langData === undefined) {
 			throw new Meteor.Error(500, 'Undefined language');
 		}
+		Comments.insert({
+			createdBy: this.userId,
+			createdAt: new Date(),
+			typeId: typeId,
+			language: langCode,
+			comment: doc.commentText
+		});
+		return "Your comment har been posted (x)";
 	},
 
 	deleteWord: function(wordId) {
