@@ -10,7 +10,6 @@ Template.urlPage.helpers({
 			if (data.data[i].language === getLanguage()) {
 				description = data.data[i].description;
 			}
-
 		}
 		return {url: data.url, description: description};
 	}

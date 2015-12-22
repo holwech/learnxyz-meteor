@@ -2,15 +2,17 @@
 	{{#if Template.subscriptionsReady}}
 		{{#with getData}}
 			<div class="row">
-				<div class="page-header">
-					<a href="{{url}}"><h3>{{url}}</h3></a>
+				<div class="page-header col-sm-12">
+					<h3>{{description}}</h3>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					{{description}}
+					<a href="{{url}}">{{url}}</a>
 				</div>
 			</div>
+			<br><br>
+			{{> textAreaMedium}}
 		{{/with}}
 	{{else}}
 		{{> localLoading}}

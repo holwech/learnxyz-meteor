@@ -4,7 +4,6 @@ Meteor.publish("words", function () {
 
 Meteor.publish("getWordUrls", function(wordId) {
 	Meteor._sleepForMs(500);
-	console.log(wordId);
 	return urlData = Urls.find({relatedWords: wordId});
 });
 

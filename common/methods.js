@@ -1,9 +1,9 @@
 Meteor.methods({
 	newWord: function(doc) {
 		check(doc, Schemas.newWord);
-		var langData = Languages.findOne({name: doc.language}, {code: 1});
-		var code = langData.code;
-		var data = Words.findOne(
+		let langData = Languages.findOne({name: doc.language}, {code: 1});
+		let code = langData.code;
+		let data = Words.findOne(
 			{
 				word: doc.word.toLowerCase(),
 				language: code
@@ -105,6 +105,10 @@ Meteor.methods({
 			}
 		);
 		return doc.url + " has been added!";
+	},
+
+	newUrlComment: function() {
+
 	},
 
 	deleteWord: function(wordId) {

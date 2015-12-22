@@ -59,3 +59,13 @@ Schemas.newUrl = new SimpleSchema({
 		}
 	}
 });
+
+Schemas.newUrlComment = new SimpleSchema({
+	commentText: {
+		type: String,
+		label: "Write a comment (x)",
+		autoform: {
+			rows: 3
+		}
+	}
+});

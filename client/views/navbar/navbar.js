@@ -18,7 +18,6 @@ Template.navBar.helpers({
 
 Template.navBar.events({
 	"keydown #searchbar": function(event) {
-		console.log("test")
 		Router.go("home");
 	}
 });
