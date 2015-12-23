@@ -1,10 +1,15 @@
 <template name='comments'>
 	{{#if Template.subscriptionsReady}}
 		{{#each comments}}
-			<div class='row'>
-				<div class="panel panel-default">
-					<div class="panel-body">
-						{{comment}}
+			<div class="panel panel-default">
+				<div class="panel-body">
+					{{comment}}
+				</div>
+				<div class='panel-footer'>
+					<div class='row'>
+						<div class='col-sm-12'>
+							<span class='pull-right'>{{createdBy.username}} | {{createdAt}}</span>
+						</div>
 					</div>
 				</div>
 			</div>
