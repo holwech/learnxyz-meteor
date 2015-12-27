@@ -4,12 +4,12 @@ Template.wordPage.onCreated(function () {
 
 Template.wordPage.helpers({
 	getData: function() {
-		urlData = Urls.find(
-			{
-				relatedWords: this._id,
-				urlType: Session.get("currentTab")
-			}
-		).fetch();
+		let dbObject = {
+			relatedWords: this._id,
+			urlType: getCategoryTab()
+		};
+		dbObject[getLanguage()] = {$exists: true};
+		let urlData = Urls.find(dbObject).fetch();
 		for(var i = 0; i < urlData.length; i++) {
 			urlData[i]._wordId = this._id;
 		}

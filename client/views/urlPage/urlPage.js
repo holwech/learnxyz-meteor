@@ -4,13 +4,9 @@ Template.urlPage.onCreated(function () {
 
 Template.urlPage.helpers({
 	getData: function() {
-		var data = Urls.findOne({_id: this._id});
-		var description = "";
-		for(var i = 0; i < data.data.length; i++) {
-			if (data.data[i].language === getLanguage()) {
-				description = data.data[i].description;
-			}
-		}
+		let data = Urls.findOne({_id: this._id});
+		let description = "";
+		description = data[getLanguage()].description;
 		return {url: data.url, description: description};
 	}
 });

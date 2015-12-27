@@ -1,11 +1,11 @@
 Template.navCategory.helpers({
 	currentTab: function(tabName) {
-		return Session.get("currentTab") === tabName;
+		return getCategoryTab() === tabName;
 	}
 });
 
 Template.navCategory.events({
-	"click .category-tab": function(event) {
-		Session.set("currentTab", event.currentTarget.getAttribute("id"));
+	'click .category-tab': function(event) {
+		setCategoryTab(event.currentTarget.getAttribute('id'));
 	}
 });

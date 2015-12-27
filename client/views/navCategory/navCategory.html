@@ -1,17 +1,17 @@
-<template name="navCategory">
-	<ul class="nav nav-tabs">
-	  <li role="presentation" class="category-tab {{#if currentTab 'video'}}active{{/if}}" id="video">
-		{{#linkTo route="result" query="category=video"}}
-			{{_ "tab_video"}}
+<template name='navCategory'>
+	<ul class='nav nav-tabs'>
+	  <li role='presentation' class='category-tab {{#if currentTab 'video'}}active{{/if}}' id='video'>
+		{{#linkTo route='result' query='category=video'}}
+			{{_ 'tab_video'}}
 		{{/linkTo}}
 	  </li>
-	  <li role="presentation" class="category-tab {{#if currentTab 'text'}}active{{/if}}" id="text">
-		{{#linkTo route="result" query="category=text"}}
-			{{_ "tab_text"}}
+	  <li role='presentation' class='category-tab {{#if currentTab 'text'}}active{{/if}}' id='text'>
+		{{#linkTo route='result' query='category=text'}}
+			{{_ 'tab_text'}}
 		{{/linkTo}}</li>
-	  <li role="presentation" class="category-tab {{#if currentTab 'image'}}active{{/if}}" id="image">
-		{{#linkTo route="result" query="category=image"}}
-			{{_ "tab_image"}}
+	  <li role='presentation' class='category-tab {{#if currentTab 'image'}}active{{/if}}' id='image'>
+		{{#linkTo route='result' query='category=image'}}
+			{{_ 'tab_image'}}
 		{{/linkTo}}</li>
 	</ul>
 </template>

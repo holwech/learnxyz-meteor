@@ -46,68 +46,57 @@ Meteor.methods({
 			throw new Meteor.Error(500, 'Undefined language');
 		}
 		if (urlData === undefined) {
+			let dbObject = {
+				createdAt: new Date(),
+				urlType: doc.urlType,
+				url: doc.url
+			};
+			dbObject[code] = {
+				description: doc.description
+			};
 			Urls.insert(
-				{
-					createdAt: new Date(),
-					urlType: doc.urlType,
-					url: doc.url,
-				},
+				dbObject,
 				function(error, inserted) {
 					if (error) {
-						throw new Meteor.Error( 500, 'There was an error processing your request' );
+						throw new Meteor.Error( 500, 'There was an error processing your request. Url insertion' );
 					}
 				}
 			);
+			var insertedId = Urls.findOne({url: doc.url})._id;
+			console.log(wordData._id + ' ' + insertedId)
 			Urls.update(
-				{	urlType: doc.urlType},
-				{
-					$addToSet: {
-						relatedWords: wordData._id,
-						data: {
-							language: code,
-							description: doc.description,
-						}
+				{_id: insertedId},
+				{$addToSet: {relatedWords: wordData._id}},
+				function(error, inserted) {
+					if (error) {
+						throw new Meteor.Error( 500, 'There was an error processing your request. Related words update');
 					}
 				}
 			);
-		} else {
-			urlData = Urls.findOne(
-				{
-					url: doc.url,
-					data: {$elemMatch: {language: code}}
+			Words.update(
+				{word: doc.relatedWords.toLowerCase()},
+				{$addToSet: {relatedUrls: insertedId}},
+				function(error, inserted) {
+					if (error) {
+						throw new Meteor.Error(500, 'There was an error processing your request. Related url update');
+					}
 				}
 			);
-			if (urlData === undefined) {
-				Urls.update(
-					{	urlType: doc.urlType},
-					{
-						$addToSet: {
-							relatedWords: wordData._id,
-							data: {
-								language: code,
-								description: doc.description,
-							}
-						}
-					}
-				);
-			} else {
-				throw new Meteor.Error( 500, 'Url already exists' );
-			}
+		} else if (urlData.hasOwnProperty(code)) {
+			throw new Meteor.Error( 500, 'Url already exists' );
+		} else if (urlData) {
+			let dbObject = {};
+			dbObject[code] = {description: doc.description};
+			Urls.update(
+				{_id: urlData._id},
+				{$set: dbObject}
+			);
 		}
-
-		Words.update(
-			{word: doc.relatedWords.toLowerCase()},
-			{$addToSet: {relatedUrls: Urls.findOne({url: doc.url})._id}},
-			function(error, inserted) {
-				if (error) {
-					throw new Meteor.Error(500, 'There was an error processing your request' );
-				}
-			}
-		);
 		return doc.url + ' has been added!';
 	},
 
 	newComment: function(doc) {
+		check(doc, Schemas.newComment);
 		if(!this.userId) {
 			throw new Meteor.Error(500, 'You are not logged in');
 		}
