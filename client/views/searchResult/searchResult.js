@@ -7,12 +7,10 @@ Template.searchResult.helpers({
 		return WordsIndex;
 	},
 	getCurrentTab: function() {
-		if(Session.get("currentTab")) {
-			return "category=" + Session.get("currentTab");
-		} else {
-			Session.set("currentTab", "video");
-			return "category=video";
-		}
+		return 'category=' + getCategoryTab();
+	},
+	getWordId: function() {
+		return this.__originalId;
 	}
 });
 

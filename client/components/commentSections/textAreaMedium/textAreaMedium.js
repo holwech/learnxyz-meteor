@@ -6,6 +6,6 @@ Template.textAreaMedium.helpers({
 		return Languages.findOne({code: getLanguage()}).name;
 	},
 	fieldTypeId: function() {
-		return Router.current().params._id;
+		return FlowRouter.getParam('_id');
 	}
 });

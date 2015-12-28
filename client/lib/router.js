@@ -1,19 +1,55 @@
-Router.configure({
-	layoutTemplate: "layout"
+FlowRouter.route('/tools', {
+	name: 'tools',
+	action: function() {
+		BlazeLayout.render(
+			'layout',
+			{
+				sideMenu: 'sideMenu', 
+				navBar: 'navBar',
+				main: 'adminTools'
+			}
+		);
+	}
 });
 
-Router.route("/", {
-	name: "home"
+FlowRouter.route('/', {
+	name: 'home',
+	action: function() {
+		BlazeLayout.render(
+			'layout',
+			{
+				sideMenu: 'sideMenu', 
+				navBar: 'navBar',
+				main: 'searchResult'
+			}
+		);
+	}
 });
 
-Router.route("/result/:__originalId", {
-	name: "result"
+FlowRouter.route('/result/:_id', {
+	name: 'result',
+	action: function() {
+		BlazeLayout.render(
+			'layout',
+			{
+				sideMenu: 'sideMenu', 
+				navBar: 'navBar',
+				main: 'wordPage'
+			}
+		);
+	}
 });
 
-Router.route("/result/:_wordId/:_id", {
-	name: "urlPage"
-});
-
-Router.route("/tools", {
-	name: "adminTools"
+FlowRouter.route('/result/:_wordId/:_id', {
+	name: 'urlPage',
+	action: function() {
+		BlazeLayout.render(
+			'layout',
+			{
+				sideMenu: 'sideMenu', 
+				navBar: 'navBar',
+				main: 'urlPage'
+			}
+		);
+	}
 });

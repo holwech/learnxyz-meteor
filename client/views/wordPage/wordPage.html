@@ -1,14 +1,17 @@
-<template name="wordPage">
+<template name='wordPage'>
+	<div class='row'>
+		{{> navCategory}}
+	</div>
 	{{#if Template.subscriptionsReady}}
 		{{#each getData}}
-			<div class="panel panel-default">
-				{{#linkTo route="urlPage"}}
-					<div class="panel-body">
-						<a href="{{url}}">
+			<div class='panel panel-default'>
+				<a href='{{pathFor 'urlPage' _wordId=getWordId _id=getUrlId}}'>
+					<div class='panel-body'>
+						<a href='{{url}}'>
 							{{url}} - {{description}}
 						</a>
 					</div>
-				{{/linkTo}}
+				</a>
 			</div>
 		{{/each}}
 	{{else}}

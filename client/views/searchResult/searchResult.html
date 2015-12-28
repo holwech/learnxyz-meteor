@@ -1,7 +1,7 @@
 <template name="searchResult">
 	{{#if Template.subscriptionsReady}}
 		{{#EasySearch.Each index=wordsIndex}}
-			<a href="{{pathFor route='result' query=getCurrentTab}}">
+			<a href="{{pathFor 'result' _id=getWordId query=getCurrentTab}}">
 				<div class="panel panel-default">
 						<div class="panel-heading">
 							<h3 class="panel-title">{{word}}</h3>

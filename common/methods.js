@@ -110,15 +110,21 @@ Meteor.methods({
 			throw new Meteor.Error(500, 'Undefined language');
 		}
 		Comments.insert({
-			createdBy: {
-				userId: this.userId,
-				username: Meteor.users.findOne({_id: this.userId}).username
+				createdBy: {
+					userId: this.userId,
+					username: Meteor.users.findOne({_id: this.userId}).username
+				},
+				createdAt: new Date(),
+				typeId: typeId,
+				language: langCode,
+				comment: doc.commentText
 			},
-			createdAt: new Date(),
-			typeId: typeId,
-			language: langCode,
-			comment: doc.commentText
-		});
+			function(error, inserted) {
+				if (error) {
+					throw new Meteor.Error(500, 'There was an error processing your request. Insert comment error');
+				}
+			}
+		);
 		return "Your comment har been posted (x)";
 	},
 

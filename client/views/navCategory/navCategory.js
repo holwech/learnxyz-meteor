@@ -1,6 +1,9 @@
 Template.navCategory.helpers({
 	currentTab: function(tabName) {
 		return getCategoryTab() === tabName;
+	},
+	getWordId: function() {
+		return FlowRouter.getParam('_id');
 	}
 });
 
