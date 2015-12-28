@@ -9,7 +9,6 @@ less
 aldeed:autoform
 ongoworks:security
 aldeed:collection2
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -26,7 +25,6 @@ check
 aldeed:simple-schema
 tap:i18n
 easy:search
-fezvrasta:bootstrap-material-design
 sacha:spin
 accounts-ui
 accounts-password
@@ -34,3 +32,5 @@ ecmascript
 kadira:flow-router
 kadira:blaze-layout
 arillo:flow-router-helpers
+seba:minifiers-autoprefixer
+fourseven:scss
