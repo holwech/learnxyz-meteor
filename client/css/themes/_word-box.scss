@@ -1,0 +1,21 @@
+.word-box {
+	padding: 0px;
+}
+
+.word-panel-box {
+	border-color: $nav-color;
+	border-top: 0px;
+	margin: 0px;
+}
+
+.word-name-box {
+	background: $nav-color-second;
+}
+
+.word-panel-box:hover {
+	background: white;
+}
+
+.word-name-box, .word-description-box {
+	padding: 15px;
+}

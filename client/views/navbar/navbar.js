@@ -7,8 +7,8 @@ Template.navBar.helpers({
 	},
 	attrInput: function() {
 		return {
-			class: "form-control col-lg-8",
-			id: "searchbar",
+			class: 'form-control col-lg-8',
+			id: 'searchbar',
 			placeholder: function() {
 				return TAPi18n.__('searchbar');
 			}
@@ -17,14 +17,14 @@ Template.navBar.helpers({
 });
 
 Template.navBar.events({
-	"keydown #searchbar": function(event) {
-		Router.go("home");
+	'keydown #searchbar': function(event) {
+		FlowRouter.go('/');
 	}
 });
 
 
 Accounts.ui.config({
-	passwordSignupFields: "USERNAME_AND_EMAIL"
+	passwordSignupFields: 'USERNAME_AND_EMAIL'
 });
 
 

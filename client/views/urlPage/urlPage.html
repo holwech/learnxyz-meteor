@@ -1,29 +1,31 @@
 <template name='urlPage'>
-	{{#if Template.subscriptionsReady}}
-		{{#with getData}}
-			<div class='row'>
-				<div class='page-header col s12'>
-					<h3>{{description}}</h3>
+	<div class='col-sm-12'>
+		{{#if Template.subscriptionsReady}}
+			{{#with getData}}
+				<div class='row'>
+					<div class='page-header col-sm-12'>
+						<h3>{{description}}</h3>
+					</div>
 				</div>
-			</div>
-			<div class='row'>
-				<div class='col-sm-12'>
-					<a href='{{url}}'>{{url}}</a>
+				<div class='row'>
+					<div class='col-sm-12'>
+						<a href='{{url}}'>{{url}}</a>
+					</div>
 				</div>
-			</div>
-			<br><br>
-			<div class='row'>
-				<div class='col-sm-4'>
-					{{> comments}}
+				<br><br>
+				<div class='row'>
+					<div class='col-sm-4'>
+						{{> comments}}
+					</div>
 				</div>
-			</div>
-			<div class='row'>
-				<div class='col-sm-4'>
-					{{> textAreaMedium}}
+				<div class='row'>
+					<div class='col-sm-4'>
+						{{> textAreaMedium}}
+					</div>
 				</div>
-			</div>
-		{{/with}}
-	{{else}}
-		{{> localLoading}}
-	{{/if}}
+			{{/with}}
+		{{else}}
+			{{> localLoading}}
+		{{/if}}
+	</div>
 </template>
