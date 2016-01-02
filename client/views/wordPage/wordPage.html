@@ -2,15 +2,20 @@
 	{{> navCategory}}
 	{{#if Template.subscriptionsReady}}
 		{{#each getData}}
-			<div class='panel panel-default'>
-				<a href='{{pathFor 'urlPage' _wordId=getWordId _id=getUrlId}}'>
-					<div class='panel-body'>
-						<a href='{{url}}'>
-							{{url}} - {{description}}
-						</a>
-					</div>
-				</a>
-			</div>
+			<a href='{{pathFor 'urlPage' _wordId=getWordId _id=getUrlId}}' class='unstyle-link'>
+				<div class='panel panel-default word-panel-box'>
+						<div class='panel-body'>
+							<div class='col-sm-1'>
+								{{> voting}}
+							</div>
+							<div class='col-sm-11'>
+								<a href='{{url}}'>
+									{{description}} - {{url}}
+								</a>
+							</div>
+						</div>
+				</div>
+			</a>
 		{{/each}}
 	{{else}}
 		{{> localLoading}}

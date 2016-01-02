@@ -17,7 +17,8 @@ Languages = new Mongo.Collection('languages');
 LanguagesIndex = new EasySearch.Index({
 	collection: Languages,
 	fields: ['name','nativeName'],
-	engine: new EasySearch.MongoDB()
+	engine: new EasySearch.MongoDB(),
+	limit: 3
 });
 
 Comments = new Mongo.Collection('comments');

@@ -13,6 +13,7 @@ Template.wordPage.helpers({
 		let urlData = Urls.find(dbObject).fetch();
 		for(let i = 0; i < urlData.length; i++) {
 			urlData[i]._wordId = _wordId;
+			urlData[i].description = urlData[i][getLanguage()].description;
 		}
 		return urlData;
 	},

@@ -1,13 +1,11 @@
-<template name="sideMenu">
+<template name='sideMenu'>
 	{{#if Template.subscriptionsReady}}
-		<ul class="nav nav-pills nav-stacked" id="languageList">
-			<li><a href="#" id="no">{{_ "lang_norwegian"}}</a></li>
-			<li><a href="#" id="en">{{_ "lang_english"}}</a></li>
-			<li>
-				{{> EasySearch.Input index=languagesIndex attributes=attrInput}}
-			</li>
+		<div class='row'>
+			{{> EasySearch.Input index=languagesIndex attributes=attrInput}}
+		</div>
+		<ul class='nav nav-pills nav-stacked' id='languageList'>
 			{{#EasySearch.Each index=languagesIndex}}
-				<li><a href="#" id="{{code}}">{{nativeName}}</a></li>
+				<li><a href='#' id='{{code}}'>{{nativeName}}</a></li>
 			{{/EasySearch.Each}}
 		</ul>
 
@@ -15,7 +13,7 @@
 			{{> localLoading}}
 		{{/EasySearch.IfSearching}}
 		{{#EasySearch.IfNoResults index=languagesIndex}}
-			<div class="no-results">No results found!</div>
+			<div class='no-results'>No results found!</div>
 		{{/EasySearch.IfNoResults}}
 		{{> EasySearch.LoadMore index=languagesIndex}}
 	{{else}}

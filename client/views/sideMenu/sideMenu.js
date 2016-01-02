@@ -20,7 +20,6 @@ Template.sideMenu.helpers({
 Template.sideMenu.events({
 	"click #languageList": function(event) {
 		if (event.target.tagName !== "INPUT") {
-			console.log(event.target.id);
 			setLanguage(event.target.id);
 		}
 	}

@@ -1,4 +1,9 @@
 Meteor.methods({
+
+//==
+//
+// WORD FUNCTIONS
+
 	newWord: function(doc) {
 		check(doc, Schemas.newWord);
 		let langData = Languages.findOne({name: doc.language}, {code: 1});
@@ -30,6 +35,18 @@ Meteor.methods({
 		);
 		return doc.word + ' has been added!';
 	},
+
+	deleteWord: function(wordId) {
+		Words.remove(wordId);
+	},
+
+	dropWords: function() {
+		Words.remove({});
+	},
+
+//==
+//
+// URL FUNCTIONS
 
 	newUrl: function(doc) {
 		check(doc, Schemas.newUrl);
@@ -95,6 +112,14 @@ Meteor.methods({
 		return doc.url + ' has been added!';
 	},
 
+	dropUrls: function() {
+		Urls.remove({});
+	},
+
+//==
+//
+// COMMENT FUNCTIONS
+
 	newComment: function(doc) {
 		check(doc, Schemas.newComment);
 		if(!this.userId) {
@@ -128,16 +153,57 @@ Meteor.methods({
 		return "Your comment har been posted (x)";
 	},
 
-	deleteWord: function(wordId) {
-		Words.remove(wordId);
+//==
+//
+// VOTING FUNCTIONS
+	vote: function(voteType, language, wordId, urlId) {
+		if(!this.userId) {
+			throw new Meteor.Error(500, 'You are not logged in');
+		}
+		let urlData = Urls.findOne({
+				_id: urlId, 
+				relatedWords: wordId
+			},
+			function(error, inserted) {
+				if (error) {
+					throw new Meteor.Error(500, 'There was an error processing your request. Url vote search');
+				}
+			}
+		);
+		if (voteType !== 'downvote' || voteType !== 'upvote') {
+			throw new Meteor.Error(500, 'Undefined vote type');
+		}
+		if (urlData === undefined) {
+			throw new Meteor.Error(500, 'There was an error processing your request. Undefined relation');
+		}
+		if (!urlData.hasOwnProperty(language)) {
+			throw new Meteor.Error(500, 'Undefined language');
+		}
+		let dbObject = {};
+		dbObject[language] = {voting: {}};
+		dbObject[language].voting[wordId] = {};
+		dbObject[language].voting[wordId][voteType] = {};
+		let dbIncObject = dbObject;
+		let dbAddSetObject = dbObject;
+		dbIncObject[language].voting[wordId][voteType] = {count: 1};
+		dbAddSetObject[language].voting[wordId][voteType] = {users: this.userId};
+
+		Urls.update(
+			{_id: urlId},
+			{
+				$inc: dbIncObject,
+				$addToSet: dbAddSetObject
+			}
+		);
 	},
 
-	dropUrls: function() {
-		Urls.remove({});
-	},
-	dropWords: function() {
-		Words.remove({});
-	},
+
+
+
+//==
+//
+// LANGUAGE FUNCTIONS
+
 	addLanguages: function() {
 		Lanuages.remove({});
 		for (let key in isoLangs) {
