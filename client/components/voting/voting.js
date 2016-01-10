@@ -12,6 +12,8 @@ Template.voting.events({
 
 Template.voting.helpers({
 	voteCount: function() {
-		
+		let data = Urls.findOne({_id: FlowRouter.getParam('_id')});
+		console.log(data);
+		return 'lol';
 	}
 })

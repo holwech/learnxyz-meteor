@@ -34,3 +34,6 @@ kadira:blaze-layout
 arillo:flow-router-helpers
 seba:minifiers-autoprefixer
 fourseven:scss
+reactive-var
+reactive-dict
+easysearch:autosuggest

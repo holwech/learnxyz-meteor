@@ -1,19 +1,29 @@
 <template name='wordPage'>
 	{{> navCategory}}
 	{{#if Template.subscriptionsReady}}
-		{{#each getData}}
-			<a href='{{pathFor 'urlPage' _wordId=getWordId _id=getUrlId}}' class='unstyle-link'>
+		{{#each urlData}}
+			<a href='{{pathFor 'urlPage' _wordId=wordId _id=urlId}}' class='unstyle-link'>
 				<div class='panel panel-default word-panel-box'>
-						<div class='panel-body'>
-							<div class='col-sm-1'>
-								{{> voting}}
-							</div>
-							<div class='col-sm-11'>
-								<a href='{{url}}'>
-									{{description}} - {{url}}
-								</a>
+					<div class='panel-body'>
+						<div class='col-sm-1'>
+							<div class='voting-container'>
+								<div class='row'>
+									<a href=''><i class='material-icons md-36' id='upvote'>keyboard_arrow_up</i></a>
+								</div>
+								<div class='row'>
+									{{voteCount}}
+								</div>
+								<div class='row'>
+									<a href=''><i class='material-icons md-36' id='downvote'>keyboard_arrow_down</i></a>
+								</div>
 							</div>
 						</div>
+						<div class='col-sm-11'>
+							<a href='{{url}}'>
+								{{description}} - {{url}}
+							</a>
+						</div>
+					</div>
 				</div>
 			</a>
 		{{/each}}

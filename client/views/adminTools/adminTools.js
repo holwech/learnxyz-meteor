@@ -9,3 +9,13 @@ Template.adminTools.events({
 		Meteor.call("addLanguages");
 	}
 });
+
+
+Template.adminTools.helpers({
+	usersIndex: function() {
+		return UsersIndex;
+	},
+	wordsIndex: function() {
+		return WordsIndex;
+	}
+});

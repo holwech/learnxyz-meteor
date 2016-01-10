@@ -6,7 +6,7 @@ WordsIndex = new EasySearch.Index({
 	fields: ['word'],
 	engine: new EasySearch.MongoDB({
 		selector: function (searchObject, options, aggregation) {
-			var selector = this.defaultConfiguration().selector(searchObject, options, aggregation);
+			let selector = this.defaultConfiguration().selector(searchObject, options, aggregation);
 			selector.language = options.search.props.language;
 			return selector;
 		}

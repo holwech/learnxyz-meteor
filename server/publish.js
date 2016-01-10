@@ -3,12 +3,14 @@ Meteor.publish('words', function () {
 });
 
 Meteor.publish('getWordUrls', function(wordId) {
-	Meteor._sleepForMs(500);
-	return urlData = Urls.find({relatedWords: wordId});
+	return Urls.find({relatedWords: wordId});
+});
+
+Meteor.publish('voteCount', function(wordId, urlId) {
+	return Urls.find({_id: urlId});
 });
 
 Meteor.publish('getUrlData', function(urlId) {
-	Meteor._sleepForMs(500);
 	return Urls.find({_id: urlId});
 });
 

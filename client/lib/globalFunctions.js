@@ -22,7 +22,7 @@ setLanguage = function(lang) {
 setSearchLanguage = function(lang) {
 	WordsIndex.getComponentMethods()
 		.addProps('language', lang);
-}
+};
 
 
 getCategoryTab = function() {
@@ -32,8 +32,8 @@ getCategoryTab = function() {
 	} else {
 		return Session.get('currentTab');
 	}
-}
+};
 
 setCategoryTab =  function(category) {
 	Session.set('currentTab', category);
-}
+};
