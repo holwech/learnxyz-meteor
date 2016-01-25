@@ -1,4 +1,4 @@
-Template.newUrl.helpers({
+Template.newUrlInput.helpers({
 	newUrlSchema: function() {
 		return Schemas.newUrl;
 	},

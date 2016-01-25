@@ -14,9 +14,11 @@
 					<span class='icon-bar'></span>
 				</button>
 				<form class='navbar-form'>
-					<i class="material-icons">search</i>
 					<div class='form-group'>
-						{{> EasySearch.Input index=wordsIndex attributes=attrInput}}
+						<div class='input-group'>
+							<span class='input-group-addon'><i class='material-icons md-36'>search</i></span>
+							{{> EasySearch.Input index=wordsIndex attributes=attrInput}}
+						</div>
 					</div>
 				</form>
 			</div>
@@ -27,7 +29,7 @@
 					<a class='navbar-brand' href='{{pathFor 'home'}}'>LEARNXYZ</a>
 				</div>
 				<ul class='nav navbar-nav navbar-right'>
-					<li><a>Button</a></li>
+					{{#if isAdmin}}<li><a href='{{pathFor 'tools'}}'>Tools</a></li>{{/if}}
 					<li><a>{{> loginButtons}}</a></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->

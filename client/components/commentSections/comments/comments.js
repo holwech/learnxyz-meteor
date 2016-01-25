@@ -4,9 +4,6 @@ Template.comments.onCreated(function() {
 
 Template.comments.helpers({
 	comments: function() {
-		return Comments.find({
-			typeId: FlowRouter.getParam('_id'),
-			language: getLanguage()
-		});
+		return Comments.find({commentedOn: FlowRouter.getParam('_id')});
 	}
 });

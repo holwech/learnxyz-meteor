@@ -53,3 +53,17 @@ FlowRouter.route('/result/:_wordId/:_id', {
 		);
 	}
 });
+
+FlowRouter.route('/new-word', {
+	name: 'newWord',
+	action: function() {
+		BlazeLayout.render(
+			'layout',
+			{
+				sideMenu: 'sideMenu', 
+				navBar: 'navBar',
+				main: 'newWord'
+			}
+		);
+	}
+});

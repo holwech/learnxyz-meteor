@@ -1,5 +1,5 @@
 <template name='navCategory'>
-	<ul class='nav nav-pills'>
+	<ul class='nav nav-tabs'>
 		<li role='presentation' class='category-tab {{#if currentTab 'video'}}active{{/if}}' id='video'>
 			<a href='{{pathFor 'result' _id=getWordId query='category=video'}}'>
 				{{_ 'tab_video'}}

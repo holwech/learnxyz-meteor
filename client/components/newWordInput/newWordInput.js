@@ -1,4 +1,4 @@
-Template.newWord.helpers({
+Template.newWordInput.helpers({
 	newWordSchema: function() {
 		return Schemas.newWord;
 	},

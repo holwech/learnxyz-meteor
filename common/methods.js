@@ -167,12 +167,12 @@ Meteor.methods({
 			throw new Meteor.Error('language-undefined', 'Undefined language. (x)');
 		}
 		Comments.insert({
+				createdAt: new Date(),
 				language: code,
 				createdBy: {
 					userId: this.userId,
 					username: Meteor.users.findOne({_id: this.userId}).username
 				},
-				createdAt: new Date(),
 				commentedOn: typeId,
 				comment: doc.commentText
 			},
@@ -197,60 +197,48 @@ Meteor.methods({
 				relatedWords: wordId
 			}
 		);
+		let langData = Languages.findOne({code: language});
+		if (langData === undefined) {
+			throw new Meteor.Error('language-undefined', 'Undefined language');
+		}
 		if (voteType !== 'downvote' && voteType !== 'upvote') {
 			throw new Meteor.Error('vote-type-undefined', 'Undefined vote type. (x)');
 		}
 		if (urlData === undefined) {
 			throw new Meteor.Error('relation-undefined', 'Undefined relation. (x)');
 		}
-		if (!urlData.hasOwnProperty(language)) {
-			throw new Meteor.Error('language-undefined', 'Undefined language. (x)');
-		}
 		//Sets the inverse of voteType
-		let invVoteType = (voteType === 'upvote') ? 'downvote' : upvote;
-		let userUpvotes = urlData['voting'][wordId]['upvote']['user'];
-		let userDownvotes = urlData['voting'][wordId]['downvote']['user'];
+		let invVoteType = (voteType === 'upvote') ? 'downvote' : 'upvote';
+		let userUpvotes = urlData['voting'][wordId]['upvote']['users'];
+		let userDownvotes = urlData['voting'][wordId]['downvote']['users'];
+		let dbObject = {
+			$inc: {},
+			$addToSet: {},
+			$pull: {}
+		};
 		//If user has not upvoted or downvoted this relation.
 		if(userUpvotes.indexOf(this.userId) === -1 && userDownvotes.indexOf(this.userId) === -1) {
-			Urls.update({
-					_id: urlId
-				},
-				{
-					$inc: {'.voting.' + wordId + '.' + voteType + '.count': 1},
-					$addToSet: {'.voting.' + wordId + '.' + voteType + '.users': this.userId}
-				}
-			);
+			delete dbObject.$pull;
+			dbObject.$inc['voting.' + wordId + '.' + voteType + '.count'] = 1;
+			dbObject.$addToSet['voting.' + wordId + '.' + voteType + '.users'] = this.userId;
 		//If user wants to undo a vote
 		} else if((userUpvotes.indexOf(this.userId) !== -1 && voteType === 'upvote') ||
-							(userDownvotes.indexOf(this.userId) !=== -1 && voteType === 'downvote')) {
-			Urls.update(
-				{_id: urlId}
-				{
-					$
-				}
-			);
+							(userDownvotes.indexOf(this.userId) !== -1 && voteType === 'downvote')) {
+			delete dbObject.$addToSet;
+			dbObject.$inc['voting.' + wordId + '.' + voteType + '.count'] = -1;
+			dbObject.$pull['voting.' + wordId + '.' + voteType + '.users'] = this.userId;
+		//If user votes the opposite of a vote already given
+		} else {
+			dbObject.$inc['voting.' + wordId + '.' + voteType + '.count'] = 1;
+			dbObject.$inc['voting.' + wordId + '.' + invVoteType + '.count'] = -1;
+			dbObject.$addToSet['voting.' + wordId + '.' + voteType + '.users'] = this.userId;
+			dbObject.$pull['voting.' + wordId + '.' + invVoteType + '.users'] = this.userId;
 		}
-
-
-		let dbIncObject = {};
-		let dbAddSetObject = {};
-
-		dbIncObject[language + '.voting.' + wordId + '.' + voteType + '.count'] = 1;
-		dbAddSetObject[language + '.voting.' + wordId + '.' + voteType + '.users'] = this.userId;
-		console.log(dbIncObject);
-		console.log(dbAddSetObject);
 		Urls.update(
 			{_id: urlId},
-			{
-				$inc: dbIncObject,
-				$addToSet: dbAddSetObject
-			},
-			function(error, inserted) {
-				if (error) {
-					throw new Meteor.Error('vote-db', 'There was an error processing your request. (x)');
-				}
-			}
+			dbObject
 		);
+		return 'Vote successfull';
 	},
 
 

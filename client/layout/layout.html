@@ -1,5 +1,5 @@
 <template name='layout'>
-	<div class='container-fluid'>
+	<div class='container-fluid main-container'>
 		<div class='row'>
 			<div class='col-sm-2 col-side-bar'>
 				{{> Template.dynamic template=sideMenu}}
@@ -8,7 +8,7 @@
 				<div class='row'>
 					{{> Template.dynamic template=navBar}}
 				</div>
-				<div class='row'>
+				<div class='row main-row'>
 					{{> Template.dynamic template=main}}
 				</div>
 			</div>

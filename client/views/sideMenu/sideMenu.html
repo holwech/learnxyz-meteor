@@ -15,7 +15,7 @@
 		{{#EasySearch.IfNoResults index=languagesIndex}}
 			<div class='no-results'>No results found!</div>
 		{{/EasySearch.IfNoResults}}
-		{{> EasySearch.LoadMore index=languagesIndex}}
+		{{> EasySearch.LoadMore index=languagesIndex attributes=attrLoadMore}}
 	{{else}}
 		{{> localLoading}}
 	{{/if}}
