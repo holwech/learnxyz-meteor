@@ -7,18 +7,18 @@
 					<div class='panel-body'>
 						<div class='col-sm-1'>
 							<div class='voting-container'>
-								<div class='row'>
-									<a href=''><i class='material-icons md-36' id='upvote'>keyboard_arrow_up</i></a>
+								<div class='row text-center'>
+									<a href='' class='unstyle-link'><i class='material-icons md-36 {{#if upvoted}}active-yellow{{/if}}' id='upvote'>keyboard_arrow_up</i></a>
 								</div>
-								<div class='row'>
+								<div class='row text-center'>
 									{{voteCount}}
 								</div>
-								<div class='row'>
-									<a href=''><i class='material-icons md-36' id='downvote'>keyboard_arrow_down</i></a>
+								<div class='row text-center'>
+									<a href='' class='unstyle-link'><i class='material-icons md-36 {{#if downvoted}}active-yellow{{/if}}' id='downvote'>keyboard_arrow_down</i></a>
 								</div>
 							</div>
 						</div>
-						<div class='col-sm-11'>
+						<div class='col-sm-23'>
 							<a href='{{url}}'>
 								{{description}} - {{url}}
 							</a>

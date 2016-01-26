@@ -31,5 +31,23 @@ Template.wordPage.helpers({
 		let data = Urls.findOne({_id: this._id});
 		data = data['voting'][FlowRouter.getParam('_id')];
 		return data.upvote.count - data.downvote.count;
+	},
+	upvoted: function() {
+		let data = Urls.findOne({_id: this._id});
+		data = data['voting'][FlowRouter.getParam('_id')].upvote.users;
+		if(data.indexOf(Meteor.userId()) >= 0) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	downvoted: function() {
+		let data = Urls.findOne({_id: this._id});
+		data = data['voting'][FlowRouter.getParam('_id')].downvote.users;
+		if(data.indexOf(Meteor.userId()) >= 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 });

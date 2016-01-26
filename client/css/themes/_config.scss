@@ -2,8 +2,12 @@ html, body{
 	height: 100%;
 }
 
+.unstyle-link {
+	color: $gray;
+}
+
 .unstyle-link:hover {
-	color: #428BCA;
+	color: $gray;
 	text-decoration: none;
 }
 
@@ -11,3 +15,8 @@ html, body{
 	float: none;
 	margin: 0 auto;
 }
+
+.active-yellow {
+	color: $nav-color;
+}
+
