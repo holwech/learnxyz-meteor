@@ -1,7 +1,4 @@
 
-<!--  -->
-<!-- <li><a href='#'>{{> loginButtons}}</a></li> -->
-
 <template name='navBar'>
 	<nav class='navbar navbar-default'>
 		<div class='container-fluid'>
@@ -15,8 +12,8 @@
 				</button>
 				<form class='navbar-form'>
 					<div class='form-group'>
-						<div class='input-group'>
-							<span class='input-group-addon'><i class='material-icons md-36'>search</i></span>
+						<div class='input-group search-group' id='searchbar-group'>
+							<span class='input-group-addon search-group' id='nav-search-addon'><i class='material-icons md-36'>search</i></span>
 							{{> EasySearch.Input index=wordsIndex attributes=attrInput}}
 						</div>
 					</div>

@@ -6,4 +6,17 @@
 #searchbar {
 	height: 64px;
 	font-size: $font-size-large;
+	background: $nav-color;
+	border: $nav-color;
+}
+
+// #searchbar-group:hover {
+// 	> #searchbar, > #nav-search-addon {
+// 		background: white;
+// 		border: white;
+// 	}
+// }
+
+.search-group:hover {
+	background:white
 }

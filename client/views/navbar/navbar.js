@@ -22,7 +22,21 @@ Template.navBar.helpers({
 Template.navBar.events({
 	'keydown #searchbar': function(event) {
 		FlowRouter.go('/');
-	}
+	},
+	// 'focusin #searchbar': function() {
+	// 	$('#searchbar').css('background-color', '#fff');
+	// },
+	// 'focusout #searchbar': function() {
+	// 	$('#searchbar').css('background-color', '#00B2FF');
+	// }
+	// 'mouseenter #nav-search-addon, mouseenter #searchbar': function(event) {
+	// 	$('#searchbar, #nav-search-addon, #nav-search-addon > i')
+	// 		.css('background-color', '#fff');
+	// },
+	// 'mouseleave #nav-search-addon, mouseleave #searchbar': function(event) {
+	// 	$('#searchbar, #nav-search-addon, #nav-search-addon > i')
+	// 		.css('background-color', '#00B2FF');
+	// }
 });
 
 
