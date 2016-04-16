@@ -81,3 +81,29 @@ Schemas.newComment = new SimpleSchema({
 		}
 	}
 });
+
+
+Schemas.newUser = new SimpleSchema({
+	email: {
+		type: String,
+		label: 'Enter your email (x)',
+		regEx: SimpleSchema.RegEx.Email
+	},
+	password: {
+		type: String,
+		label: 'Password (x)'
+	}
+});
+
+
+Schemas.loginUser = new SimpleSchema({
+	email: {
+		type: String,
+		label: 'Enter your email (x)',
+		regEx: SimpleSchema.RegEx.Email
+	},
+	password: {
+		type: String,
+		label: 'Password (x)'
+	}
+});

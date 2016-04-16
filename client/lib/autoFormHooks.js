@@ -27,3 +27,20 @@ let onPostHandling = {
 	}
 }
 AutoForm.addHooks(['newWord', 'newUrl'], onPostHandling);
+
+let loginHandling = {
+	onSubmit: function(doc) {
+		let self = this;
+		if(doc.email && doc.password) {
+			Meteor.loginWithPassword(doc.email, doc.password,
+					function(error) {
+						if(error) {
+							self.done(error);
+						} else {
+							self.done();
+						}
+					}		
+			)
+		}
+	}
+}

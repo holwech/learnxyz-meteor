@@ -11,6 +11,10 @@ html, body{
 	text-decoration: none;
 }
 
+.link-brand {
+	color: $nav-color-second;
+}
+
 .col-centered {
 	float: none;
 	margin: 0 auto;
@@ -20,3 +24,17 @@ html, body{
 	color: $nav-color;
 }
 
+.center-block {
+	display: table;
+	margin: 0 auto;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.content {
+	border: 1px solid $gray-lighter;   
+	padding: $panel-body-padding;
+	margin-top: $line-height-computed;
+}

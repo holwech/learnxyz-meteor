@@ -24,7 +24,6 @@ spacebars
 check
 aldeed:simple-schema
 tap:i18n
-easy:search
 sacha:spin
 accounts-ui
 accounts-password
@@ -37,3 +36,4 @@ fourseven:scss
 reactive-var
 reactive-dict
 easysearch:autosuggest
+easy:search

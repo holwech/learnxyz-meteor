@@ -67,3 +67,18 @@ FlowRouter.route('/new-word', {
 		);
 	}
 });
+
+FlowRouter.route('/login', {
+	name: 'login',
+	action: function() {
+		BlazeLayout.render(
+			'layout',
+			{
+				sideMenu: 'sideMenu',
+				navBar: 'navBar',
+				main: 'login'
+			}
+		)
+	}
+});
+

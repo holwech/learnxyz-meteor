@@ -1,25 +1,25 @@
 <template name='urlPage'>
-	<div class='col-sm-12'>
+	<div class='col-sm-24'>
 		{{#if Template.subscriptionsReady}}
 			{{#with getData}}
 				<div class='row'>
-					<div class='page-header col-sm-12'>
+					<div class='page-header col-sm-24'>
 						<h3>{{description}}</h3>
 					</div>
 				</div>
 				<div class='row'>
-					<div class='col-sm-12'>
+					<div class='col-sm-24'>
 						<a href='{{url}}'>{{url}}</a>
 					</div>
 				</div>
 				<br><br>
 				<div class='row'>
-					<div class='col-sm-4'>
+					<div class='col-sm-8'>
 						{{> comments}}
 					</div>
 				</div>
 				<div class='row'>
-					<div class='col-sm-4'>
+					<div class='col-sm-8'>
 						{{> textAreaMedium}}
 					</div>
 				</div>

@@ -13,7 +13,7 @@
 				<form class='navbar-form'>
 					<div class='form-group'>
 						<div class='input-group search-group' id='searchbar-group'>
-							<span class='input-group-addon search-group' id='nav-search-addon'><i class='material-icons md-36'>search</i></span>
+							<span class='input-group-addon' id='nav-search-addon'><i class='material-icons md-36'>search</i></span>
 							{{> EasySearch.Input index=wordsIndex attributes=attrInput}}
 						</div>
 					</div>
@@ -27,7 +27,13 @@
 				</div>
 				<ul class='nav navbar-nav navbar-right'>
 					{{#if isAdmin}}<li><a href='{{pathFor 'tools'}}'>Tools</a></li>{{/if}}
-					<li><a>{{> loginButtons}}</a></li>
+					<li>
+						{{#if currentUser}}
+							<a id='logout'>Logout</a>
+						{{else}}
+							<a href='{{pathFor 'login'}}'>Login</a>
+						{{/if}}
+					</li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->

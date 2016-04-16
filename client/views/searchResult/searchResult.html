@@ -23,14 +23,16 @@
 
 		{{#EasySearch.IfNoResults index=wordsIndex}}
 		<a href='{{pathFor 'newWord'}}'>
-			<div class='col-sm-3 col-centered'>
+			<div class='col-sm-6 col-centered'>
 				<div class='row'>
-					<div class='col-sm-12'>
-						<i class='material-icons md-48' id='new-word-icon'>add_circle_outline</i>
+					<div class='col-sm-24'>
+						<div class='center-block'>
+							<i class='material-icons md-48' id='new-word-icon'>add_circle_outline</i>
+						</div>
 					</div>
 					
 				</div>
-				<div class='row'>
+				<div class='row text-center'>
 					<p>This word does not exits. Want to add it? (x)</p>
 				</div>
 			</div>

@@ -25,3 +25,4 @@ Meteor.publish('languages', function () {
 Meteor.publish('getComments', function(typeId, language) {
 	return Comments.find({commentedOn: typeId});
 });
+

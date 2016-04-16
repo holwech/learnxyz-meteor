@@ -8,8 +8,16 @@
 	font-size: $font-size-large;
 	background: $nav-color;
 	border: $nav-color;
+	box-shadow: none;
 }
 
+#nav-search-addon {
+	color: white;
+}
+
+#nav-search-addon:hover {
+	color: $gray-dark;
+}
 // #searchbar-group:hover {
 // 	> #searchbar, > #nav-search-addon {
 // 		background: white;
@@ -17,6 +25,15 @@
 // 	}
 // }
 
-.search-group:hover {
-	background:white
+.search-group:hover #nav-search-addon, .search-group:hover #searchbar {
+	background:white;
+	border: white;
+	color: $gray-dark;
+}
+
+#searchbar:focus {
+	background: white;
+	#nav-search-addon {
+		background: white;
+	}
 }
