@@ -25,22 +25,35 @@ let onPostHandling = {
 			$('#field-language').val(Languages.findOne({code:getLanguage()}).name);
 		}
 	}
-}
+};
 AutoForm.addHooks(['newWord', 'newUrl'], onPostHandling);
 
 let loginHandling = {
 	onSubmit: function(doc) {
 		let self = this;
 		if(doc.email && doc.password) {
-			Meteor.loginWithPassword(doc.email, doc.password,
-					function(error) {
-						if(error) {
-							self.done(error);
-						} else {
-							self.done();
-						}
-					}		
-			)
+			Meteor.loginWithPassword(
+				doc.email, 
+				doc.password,
+				function(error) {
+					if(error) {
+						self.done(error);
+					} else {
+						self.done();
+						FlowRouter.go('/')
+					}
+				}		
+			);
+		} else {
+			self.done();
 		}
+		return false
+	},
+	onError: function(type, error) {
+		console.log(error.reason);
+		$('.alert').removeClass('hide');
+		$('#warning-text').html(error.reason);
 	}
-}
+};
+
+AutoForm.addHooks('loginUser', loginHandling);

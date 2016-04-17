@@ -27,13 +27,12 @@
 				</div>
 				<ul class='nav navbar-nav navbar-right'>
 					{{#if isAdmin}}<li><a href='{{pathFor 'tools'}}'>Tools</a></li>{{/if}}
-					<li>
-						{{#if currentUser}}
-							<a id='logout'>Logout</a>
-						{{else}}
-							<a href='{{pathFor 'login'}}'>Login</a>
-						{{/if}}
-					</li>
+					{{#if currentUser}}
+						<li><a id='logout'>Logout</a></li>
+					{{else}}
+						<li> <a href='{{pathFor 'login'}}'>Login (x)</a> </li>
+						<li> <a href='{{pathFor 'register'}}'>Register (x)</a> </li>
+					{{/if}}
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->

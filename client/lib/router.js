@@ -76,9 +76,23 @@ FlowRouter.route('/login', {
 			{
 				sideMenu: 'sideMenu',
 				navBar: 'navBar',
-				main: 'login'
+				main: 'loginUser'
 			}
 		)
 	}
 });
 
+
+FlowRouter.route('/register', {
+	name: 'register',
+	action: function() {
+		BlazeLayout.render(
+			'layout',
+			{
+				sideMenu: 'sideMenu',
+				navBar: 'navBar',
+				main: 'newUser'
+			}
+		)
+	}
+});

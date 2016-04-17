@@ -84,6 +84,10 @@ Schemas.newComment = new SimpleSchema({
 
 
 Schemas.newUser = new SimpleSchema({
+	username: {
+		type: String,
+		label: 'Enter a username'
+	},
 	email: {
 		type: String,
 		label: 'Enter your email (x)',
